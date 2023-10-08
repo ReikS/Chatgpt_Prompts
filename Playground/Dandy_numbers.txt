@@ -1,0 +1,50 @@
+First promt:
+
+Hi chatgpt!
+I would like you to work with me on a small project exploring "dandy numbers".
+
+Here is the definition of "dandy numbers". Let i be an integer greater or equal to 10.
+Then i is called a "dandy" number (or just "dandy") if the last digit of i is strictly larger
+than the first digit of i using decimal representation.
+
+Here a few examples:
+a) The number 10 is not a dandy number, as the lart digit "0" is smaller than the first digit "1".
+b) The number 6238 is dandy, since the last digit 8 is larger than the first digit 6.
+c) The number 8999999 is dandy since 9 is larger than 8.
+
+Our final goal is to get a python function that, given a dandy number d1, calculates the next largest dandy number d2.
+
+To achieve that goal, you should use the following strategy.
+
+1) Firstly, create some examples for dandy numbers by yourself.
+
+2) Secondly, given your examples, infer some true assertions about dandy number. Those may include the folliwng. 
+What is the smallest dandy number, what is the largest one? 
+What is the distance between a dandy number d1 and the next larger dandy number d2?
+Consider corner cases for those questions. How many dandy numbers are there?
+If helpful, create some additional examples to convince yourself of the patterns you found in dandy numbers.
+
+3) Using the insights you made in step 2. Create a python function called "next_dandy" which calculates the next larger dandy number d2, 
+given a dandy number d1. The function "next_dandy" must not simply try all successors of d1, instead the next dandy number should be deduced constructively.
+Here an example of what constructively means: Given the number dandy number 89, the following two digits numbers cannot be dandy, since they start with 9 and there is no digit larger than 9.
+Hence the next dandy must be three digit. As the smallest three digits number start with a 1, like 100, 101, 102, 103, the number 102 is the next largest dandy number after 89.
+
+This function should be well written and commented using standard python packages. You may write auxiliary function, 
+if you find this helpful. It is very important that you correctly consider corner cases in this function.
+
+4.) Given the function "next_dandy" fron step 3, please test it on some examples. That means apply a function to a dandy number d1 and check whether
+the fucntion return d2 is indeed the next larger dandy number. Check 3 at least examples.
+
+5.) If, in step 4 you found, that the function "next_dandy" is not correct, write a new function "next_dandy" that incorporates improvement and/or corrections.
+
+6.) When you created a new function in step 5, now test the new function on some examples. Remember, that corner cases are important.
+
+7.) Iterate step 5.) and 6.) as long as you see fit, to improve the function "next_dandy" and the auxiliary functions if you use them.
+
+8.) Provide your answer consisting of the entire python code in one script with header and comments. Further provide a summary of your insights on dandy numbers.
+
+
+Second promt:
+
+Dear chatgpt! That is a good start, unfortunately there are several mistakes in your answer. Let's go through them in the same oder as given in my initial promt.
+
