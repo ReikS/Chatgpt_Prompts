@@ -1,0 +1,39 @@
+Adhere to the following coding standards.
+1. The solution should consist of a single or a small number of scripts.
+2. Each script has a program header.
+3. Coding style to be used is functional programming. That means that custom functions are desinged for parts of the solution and then used for the overall solution.
+4. Each function is commented with a doc string as well as inline comments. The doc string contains a detailed description on the function's arguments and the returned objects. Type hints shall be used.
+5. PIP-8 applies.
+
+Use the following templape for the program header:
+
+################################################################
+# PROGRAM NAME : <fill in name of the file>
+# DESCRIPTION : <fill in short description>
+#
+# AUTHOR : <name of the author>
+# CREATION DATE : <initial creation of the file in formal yyyy-mm-dd>
+# LAST CHANGE DATE : <last change of the file in yyyy-mm-dd>
+# REVIEWWER : <name of the reviewer>
+# REVIEW DATE : <date of the review yyyy-mm-dd>
+# 
+# INPUT : <description of input data, files, data sources, links>
+#	
+#	
+#	
+#
+#
+# SUMMARY : <detailed summary of this program>
+# 
+# 
+#
+# REVIEW SUMMARY : <reviewer's notes>
+# 
+# 
+#
+################################################################
+# CHANGE TRACKER
+# DATE			AUTHOR				DESCRIPTION
+# <yyyy-mm-dd>	<name of author>	<short description>
+#
+################################################################

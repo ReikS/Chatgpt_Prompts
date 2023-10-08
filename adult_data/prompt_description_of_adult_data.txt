@@ -1,0 +1,184 @@
+Request to ChatGPT
+
+Version: ChatGPT 4.0
+
+Feature: Advanced Data Analysis
+
+Prompt:
+
+Generate and execute a Python script, adhering to functional programming principles and PEP-8 standards, to analyze the 'adult.csv' dataset. The dataset is described in detail through a text description which will be provided, and it comprises approximately 20 columns and 30,000 rows. The analysis should unfold as follows:
+
+    Initial Analysis:
+        Conduct basic descriptive statistics.
+        Report statistics on missing data and handle them appropriately.
+        Present the initial analysis and pause for review and potential adjustments.
+
+    Advanced Analysis:
+        After approval of the initial analysis, proceed with more detailed exploratory data analysis and visualization.
+        Focus on predictive modeling, where the target variable is whether an individual makes over 50K a year, ensuring model Gini is at least 30% and Somers' D is at least 20%.
+        Present the advanced analysis, suggest and, upon approval, execute additional analyses that might bring further insights.
+
+    Report Generation:
+        Ensure the report is structured, presenting findings through text, tables, and charts, opting for a suitable look and feel.
+        Save the report and results in "D:\E\Wissensbasis\Projekte\Chatgpt_Prompts\adult_data".
+        Present the report for review and feedback.
+
+    Documentation:
+        Provide a README file with instructions for execution and dependencies.
+        Include a program header in the script using the provided template.
+
+Ensure the solution is concise, easy to follow, and the script is provided for review. The model and analysis should be robust, validated, and insightful, ensuring findings are communicated clearly through the report.
+
+Adhere to the following coding standards.
+1. The solution should consist of a single or a small number of scripts.
+2. Each script has a program header.
+3. Coding style to be used is functional programming. That means that custom functions are desinged for parts of the solution and then used for the overall solution.
+4. Each function is commented with a doc string as well as inline comments. The doc string contains a detailed description on the function's arguments and the returned objects. Type hints shall be used.
+5. PIP-8 applies.
+
+Use the following templape for the program header:
+
+################################################################
+# PROGRAM NAME : <fill in name of the file>
+# DESCRIPTION : <fill in short description>
+#
+# AUTHOR : <name of the author>
+# CREATION DATE : <initial creation of the file in formal yyyy-mm-dd>
+# LAST CHANGE DATE : <last change of the file in yyyy-mm-dd>
+# REVIEWWER : <name of the reviewer>
+# REVIEW DATE : <date of the review yyyy-mm-dd>
+# 
+# INPUT : <description of input data, files, data sources, links>
+#	
+#	
+#	
+#
+#
+# SUMMARY : <detailed summary of this program>
+# 
+# 
+#
+# REVIEW SUMMARY : <reviewer's notes>
+# 
+# 
+#
+################################################################
+# CHANGE TRACKER
+# DATE			AUTHOR				DESCRIPTION
+# <yyyy-mm-dd>	<name of author>	<short description>
+#
+################################################################
+
+
+Below is a short data dictionary for the data in adult.csv.
+
+| This data was extracted from the census bureau database found at
+| http://www.census.gov/ftp/pub/DES/www/welcome.html
+| Donor: Ronny Kohavi and Barry Becker,
+|        Data Mining and Visualization
+|        Silicon Graphics.
+|        e-mail: ronnyk@sgi.com for questions.
+| Split into train-test using MLC++ GenCVFiles (2/3, 1/3 random).
+| 48842 instances, mix of continuous and discrete    (train=32561, test=16281)
+| 45222 if instances with unknown values are removed (train=30162, test=15060)
+| Duplicate or conflicting instances : 6
+| Class probabilities for adult.all file
+| Probability for the label '>50K'  : 23.93% / 24.78% (without unknowns)
+| Probability for the label '<=50K' : 76.07% / 75.22% (without unknowns)
+|
+| Extraction was done by Barry Becker from the 1994 Census database.  A set of
+|   reasonably clean records was extracted using the following conditions:
+|   ((AAGE>16) && (AGI>100) && (AFNLWGT>1)&& (HRSWK>0))
+|
+| Prediction task is to determine whether a person makes over 50K
+| a year.
+|
+| First cited in:
+| @inproceedings{kohavi-nbtree,
+|    author={Ron Kohavi},
+|    title={Scaling Up the Accuracy of Naive-Bayes Classifiers: a
+|           Decision-Tree Hybrid},
+|    booktitle={Proceedings of the Second International Conference on
+|               Knowledge Discovery and Data Mining},
+|    year = 1996,
+|    pages={to appear}}
+|
+| Error Accuracy reported as follows, after removal of unknowns from
+|    train/test sets):
+|    C4.5       : 84.46+-0.30
+|    Naive-Bayes: 83.88+-0.30
+|    NBTree     : 85.90+-0.28
+|
+|
+| Following algorithms were later run with the following error rates,
+|    all after removal of unknowns and using the original train/test split.
+|    All these numbers are straight runs using MLC++ with default values.
+|
+|    Algorithm               Error
+| -- ----------------        -----
+| 1  C4.5                    15.54
+| 2  C4.5-auto               14.46
+| 3  C4.5 rules              14.94
+| 4  Voted ID3 (0.6)         15.64
+| 5  Voted ID3 (0.8)         16.47
+| 6  T2                      16.84
+| 7  1R                      19.54
+| 8  NBTree                  14.10
+| 9  CN2                     16.00
+| 10 HOODG                   14.82
+| 11 FSS Naive Bayes         14.05
+| 12 IDTM (Decision table)   14.46
+| 13 Naive-Bayes             16.12
+| 14 Nearest-neighbor (1)    21.42
+| 15 Nearest-neighbor (3)    20.35
+| 16 OC1                     15.04
+| 17 Pebls                   Crashed.  Unknown why (bounds WERE increased)
+|
+| Conversion of original data as follows:
+| 1. Discretized agrossincome into two ranges with threshold 50,000.
+| 2. Convert U.S. to US to avoid periods.
+| 3. Convert Unknown to "?"
+| 4. Run MLC++ GenCVFiles to generate data,test.
+|
+| Description of fnlwgt (final weight)
+|
+| The weights on the CPS files are controlled to independent estimates of the
+| civilian noninstitutional population of the US.  These are prepared monthly
+| for us by Population Division here at the Census Bureau.  We use 3 sets of
+| controls.
+|  These are:
+|          1.  A single cell estimate of the population 16+ for each state.
+|          2.  Controls for Hispanic Origin by age and sex.
+|          3.  Controls by Race, age and sex.
+|
+| We use all three sets of controls in our weighting program and "rake" through
+| them 6 times so that by the end we come back to all the controls we used.
+|
+| The term estimate refers to population totals derived from CPS by creating
+| "weighted tallies" of any specified socio-economic characteristics of the
+| population.
+|
+| People with similar demographic characteristics should have
+| similar weights.  There is one important caveat to remember
+| about this statement.  That is that since the CPS sample is
+| actually a collection of 51 state samples, each with its own
+| probability of selection, the statement only applies within
+| state.
+
+
+>50K, <=50K.
+
+age: continuous.
+workclass: Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.
+fnlwgt: continuous.
+education: Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool.
+education-num: continuous.
+marital-status: Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse.
+occupation: Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces.
+relationship: Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried.
+race: White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black.
+sex: Female, Male.
+capital-gain: continuous.
+capital-loss: continuous.
+hours-per-week: continuous.
+native-country: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad&Tobago, Peru, Hong, Holand-Netherlands.
