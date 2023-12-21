@@ -11,7 +11,7 @@
 # INPUT : <description of input data, files, data sources, links>
 #	
 #	
-#	
+# OUTPUT : <description of the scripts output>	
 #
 #
 # SUMMARY : <detailed summary of this program>
