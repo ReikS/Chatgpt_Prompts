@@ -5,7 +5,7 @@ Adhere to the following coding standards.
 4. Each function is commented with a doc string as well as inline comments. The doc string contains a detailed description on the function's arguments and the returned objects. Type hints shall be used.
 5. PIP-8 applies.
 
-Use the following templape for the program header:
+Use the following template for the program header:
 
 ################################################################
 # PROGRAM NAME : <fill in name of the file>
